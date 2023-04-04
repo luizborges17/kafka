@@ -1,0 +1,5 @@
+server:
+  port: 8081
+spring:
+  kafka:
+    bootstrap-servers: 172.16.2.3:9092

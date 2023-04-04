@@ -1,0 +1,6 @@
+server:
+  port: ***
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: ***
