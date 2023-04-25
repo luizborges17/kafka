@@ -10,6 +10,8 @@ public class StrConsumer {
 
     @KafkaListener(groupId = "***", topics = "***", containerFactory = "strContainerFactory")
     public void listener(String message){
+
         log.info("Receive message {}", message);
+        
     }
 }
