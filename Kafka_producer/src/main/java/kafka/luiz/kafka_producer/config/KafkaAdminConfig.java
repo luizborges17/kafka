@@ -25,7 +25,7 @@ public class KafkaAdminConfig {
 
     @Bean
     public KafkaAdmin.NewTopics topics(){
-        return new KafkaAdmin.NewTopics(TopicBuilder.name("***").partitions(2).replicas(1).build());
+        return new KafkaAdmin.NewTopics(TopicBuilder.name("json-queue").partitions(2).replicas(1).build());
 
     }
 }

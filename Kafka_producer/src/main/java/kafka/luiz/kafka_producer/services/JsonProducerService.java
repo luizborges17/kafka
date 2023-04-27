@@ -18,10 +18,18 @@ public class JsonProducerService {
 
     @SneakyThrows
     public void sendMessage(Message message){
-        log.info("Receive message {}", message.getMessage());
+        log.info("Receive message {}", message.getText());
         Thread.sleep(1000);
 
         log.info("Sending message...");
-        kafkaTemplate.send("***", message);
+        kafkaTemplate.send("json-queue", message).addCallback(
+            success -> {
+                log.info("Foi enviado ao offset {}" ,success.getRecordMetadata().offset());
+                log.info("Esta na partição {}", success.getRecordMetadata().partition());
+                log.info(success.getRecordMetadata().topic());
+                log.info(success.getRecordMetadata().timestamp());
+            },
+                error -> log.error("Error send mensage")
+        );
     }
 }

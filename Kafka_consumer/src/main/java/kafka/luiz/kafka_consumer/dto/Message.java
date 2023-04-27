@@ -6,5 +6,8 @@ import java.io.Serializable;
 
 @Data
 public class Message implements Serializable {
-    String message;
+    String from;
+    String to;
+    String text;
+    String subject;
 }
